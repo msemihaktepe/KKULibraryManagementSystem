@@ -1,0 +1,32 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<link href="~/css/login.css" rel="stylesheet" />
+
+<div class="center">
+    <h1>Kullanıcı Girişi</h1>
+
+    <form method="post" asp-action="Login" asp-controller="Loginout">
+
+        <div class="txt_field">
+            <input asp-for="User.UserName" type="text" required>
+            <span></span>
+            <label asp-for="User.UserName">Kullanıcı Adı</label>
+        </div>
+        
+        <div class="txt_field">
+            <input asp-for="User.UserPassword" type="password" required>
+            <span></span>
+            <label asp-for="User.UserPassword">Şifre</label>
+        </div>
+
+        <input type="submit" value="Giriş">
+        <div class="text-center">
+            <a href="/Signup/Signup">Üye Ol</a>
+        </div>
+    </form>
+    
+</div>

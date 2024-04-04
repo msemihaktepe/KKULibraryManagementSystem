@@ -1,0 +1,36 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1 class="py-3 text-white" style="background-color: #3a393f ">KULLANICILAR</h1>
+<div class="mx-5">
+    <a href="/AdminUser/AddUser" class="btn btn-outline-success my-4 float-end">Yeni Kullanıcı Ekle</a>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ADI</th>
+                <th>SOYADI</th>
+                <th>KULLANICI ADI</th>
+                <th>POZİSYON</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.Users)
+            {
+                <tr>
+                    <td>@user.UserFirstName</td>
+                    <td>@user.UserLastName</td>
+                    <td>@user.UserName</td>
+                    <td>@user.Position.PositionName</td>
+                    <td><a href="/AdminUser/UpdateUser/@user.UserID" class="btn btn-outline-warning btn-sm">Düzenle</a></td>
+                    <td><a href="/AdminUser/DeleteUser/@user.UserID" class="btn btn-outline-danger btn-sm">Sil</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

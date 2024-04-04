@@ -1,0 +1,53 @@
+﻿@model StatisticViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1 class="mb-5 py-3 text-white" style="background-color: #3a393f ">İSTATİSTİKLER</h1>
+<div class="mx-5">
+    <div class="row text-white">
+        <div class="col-lg-4 mb-4">
+            <div style="background-color: #EF5350 ">
+                <div class="text-center h3 p-3">Kitap Sayısı</div>
+                <hr />
+                <div class="text-center display-2 p-3">@Model.BooksNumber</div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+            <div style="background-color: #BA68C8">
+                <div class="text-center h3 p-3">Alınan Kitap Sayısı</div>
+                <hr />
+                <div class="text-center display-2 p-3">@Model.BorrowedBooksNumber</div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+            <div style="background-color: #EC407A">
+                <div class="text-center h3 p-3">Yazar Sayısı</div>
+                <hr />
+                <div class="text-center display-2 p-3">@Model.AuthorsNumber</div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+            <div style="background-color: #7E57C2 ">
+                <div class="text-center h3 p-3">Kullanıcı Sayısı</div>
+                <hr />
+                <div class="text-center display-2 p-3">@Model.UsersNumber</div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+            <div style="background-color: #5C6BC0 ">
+                <div class="text-center h3 p-3">Kitap Türü Sayısı</div>
+                <hr />
+                <div class="text-center display-2 p-3">@Model.TypesNumber</div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+            <div style="background-color: #42A5F5 ">
+                <div class="text-center h3 p-3">Mesaj Sayısı</div>
+                <hr />
+                <div class="text-center display-2 p-3">@Model.MessagesNumber</div>
+            </div>
+        </div>       
+    </div>
+</div>

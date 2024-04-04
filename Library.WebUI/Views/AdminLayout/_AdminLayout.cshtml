@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "_AdminLayout";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<link href="~/Css/Admin1.css" rel="stylesheet" />
+
+<partial name="~/Views/Shared/AdminPartialViews/Sidebar.cshtml" />
+
+<div class="wrapper-admin">
+    <div class="section-admin">
+        <div class="box-area">
+            @RenderBody()
+        </div>
+    </div>
+</div>

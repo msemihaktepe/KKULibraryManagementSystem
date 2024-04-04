@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+
+
+@{
+    var studentName = String.Format("{0} {1}", HttpContextAccessor.HttpContext.Session.GetString("name"), HttpContextAccessor.HttpContext.Session.GetString("lastname"));
+}
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #00155b">
+    <div class="container p-0">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars text-white" style="font-size:1.75rem"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active text-white" href="/UserBooks/Index" style="padding-left:0px;">Kitaplar</a></li>
+                <li class="nav-item"><a class="nav-link active text-white" href="/UserProfil/Index">Profil Düzenle</a></li>
+                <li class="nav-item"><a class="nav-link active text-white" href="/UserRules/Index">Kurallar</a></li>
+                <li class="nav-item"><a class="nav-link active text-white" href="/UserContact/Index">İletişim</a></li>
+                <li class="nav-item"><a class="nav-link active text-white" href="/Loginout/Logout">Çıkış</a></li>
+            </ul>
+            <div class="d-flex">
+                <img src="~/DefaultPicture/defaultAvatar.jpg" style="vertical-align:middle; width:40px; height:40px; border-radius:50%; margin-right:5px">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item nav-link active text-white" style="padding-right:0px;">@studentName</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

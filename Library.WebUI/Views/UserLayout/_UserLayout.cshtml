@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "_UserLayout";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<link href="~/css/UserLayout.css" rel="stylesheet" />
+
+<div style="background-color: #f0f0f0;">
+    <partial name="~/Views/Shared/UserPartialViews/Header.cshtml" />
+    <partial name="~/Views/Shared/UserPartialViews/Navbar.cshtml" />
+
+    <div class="container md-4 shadow" style=" min-height: 100vh; background-color: #ffffff;">
+        @RenderBody()
+    </div>
+
+    <partial name="~/Views/Shared/UserPartialViews/Footer.cshtml" />
+</div>

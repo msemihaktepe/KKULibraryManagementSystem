@@ -1,0 +1,65 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UserLayout/_UserLayout.cshtml";
+}
+
+<h1 class="py-3 text-center">PROFİL BİLGİLERİ</h1>
+
+<div class="mx-5 mt-4">
+    <form asp-action="Index" asp-controller="UserProfil" method="post">
+
+        <div class="mb-3 form-group">
+            <label asp-for="User.UserFirstName" class="form-label">İsim</label>
+            <input type="text" class="form-control" asp-for="User.UserFirstName">
+            <span class="form-text text-danger" asp-validation-for="User.UserFirstName"></span>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label asp-for="User.UserLastName" class="form-label">Soyisim</label>
+            <input type="text" class="form-control" asp-for="User.UserLastName">
+            <span class="form-text text-danger" asp-validation-for="User.UserLastName"></span>
+        </div>     
+
+        <div class="mb-3 form-group">
+            <label asp-for="User.UserMail" class="form-label">Email</label>
+            <input type="email" class="form-control" asp-for="User.UserMail">
+            <span class="form-text text-danger" asp-validation-for="User.UserMail"></span>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label asp-for="User.UserPassword" class="form-label">Şifre</label>
+            <input type="text" class="form-control" asp-for="User.UserPassword">
+            <span class="form-text text-danger" asp-validation-for="User.UserPassword"></span>
+        </div>
+        
+        <input type="hidden" asp-for="User.UserID" />
+        <input type="hidden" asp-for="User.PositionID" />
+        <input type="hidden" asp-for="User.UserName" />
+        <div class="text-center"><button type="submit" class="btn btn-outline-warning">Güncelle</button></div>
+    </form>
+</div>
+
+@* Ödünç Alınmış Kitap  *@
+
+@{
+    if (Model.BorrowedBook != null)
+    {
+        <div class="p-3 mb-3 col-lg-4 col-md-6 mx-auto">
+            <div class="card shadow">
+                <div class="row g-0">
+                    <div class="col-md-4 text-center">
+                        <img src="~/image/@Model.BorrowedBook.Book.BookImage" class="img-fluid rounded-start" style="object-fit: cover; height:100%;" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body text-center">
+                            <h5 class="card-title" style="color: #3C096C">@Model.BorrowedBook.Book.BookName</h5>
+                            <p class="card-text text-muted">@Model.BorrowedBook.BorrowDate.GetDateTimeFormats()[0]</p>
+                            <a href="/UserProfil/BorrowBack/@Model.BorrowedBook.BookID" class="btn btn-outline-primary">Geri Ver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

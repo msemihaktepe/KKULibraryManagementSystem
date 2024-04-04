@@ -1,0 +1,32 @@
+﻿@model TypeViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1 class="py-3 text-white" style="background-color: #3a393f ">KİTAP TÜRLERİ</h1>
+<div class="mx-5">
+    <a href="/AdminType/AddType" class="btn btn-outline-success my-4 float-end">Yeni Tür Ekle</a>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>TÜR ADI</th>
+                <th>KİTAP SAYISI</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var type in Model.TypeWithBooks)
+            {
+                <tr>
+                    <td>@type.Name</td>
+                    <td>@type.NumberOfBook</td>
+                    <td><a href="/AdminType/UpdateType/@type.Id" class="btn btn-outline-warning btn-sm">Düzenle</a></td>
+                    <td><a href="/AdminType/DeleteType/@type.Id" class="btn btn-outline-danger btn-sm">Sil</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

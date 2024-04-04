@@ -1,0 +1,18 @@
+﻿@model RuleViewModel
+@{
+    ViewData["Title"] = "AddRule";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1 class="py-3 text-white" style="background-color: #3a393f ">KURAL EKLE</h1>
+<div class="mx-5 mt-4">
+    <form asp-action="AddRule" asp-controller="AdminRule" method="post">
+        <div class="mb-3 form-group">
+            <label asp-for="Rule.RuleDesc" class="form-label">Kural</label>
+            <input type="text" class="form-control" asp-for="Rule.RuleDesc">
+            <span class="form-text text-danger" asp-validation-for="Rule.RuleDesc"></span>
+        </div>
+        <div class="text-center"><button type="submit" class="btn btn-outline-primary">Ekle</button></div>
+    </form>
+</div>
+

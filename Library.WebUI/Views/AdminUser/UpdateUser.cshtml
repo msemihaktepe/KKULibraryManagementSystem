@@ -1,0 +1,40 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "UpdateUser";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1 class="py-3 text-white" style="background-color: #3a393f ">KULLANICI GÜNCELLE</h1>
+<div class="mx-5 mt-4">
+    <form asp-action="UpdateUser" asp-controller="AdminUser" method="post">
+        <div class="mb-3 form-group">
+            <label asp-for="User.UserFirstName" class="form-label">İsim</label>
+            <input type="text" class="form-control" asp-for="User.UserFirstName" readonly>
+            <span class="form-text text-danger" asp-validation-for="User.UserFirstName"></span>
+        </div>
+        <div class="mb-3 form-group">
+            <label asp-for="User.UserLastName" class="form-label">Soyisim</label>
+            <input type="text" class="form-control" asp-for="User.UserLastName" readonly>
+            <span class="form-text text-danger" asp-validation-for="User.UserLastName"></span>
+        </div>
+        <div class="mb-3 form-group">
+            <label asp-for="User.UserName" class="form-label">Kullanıcı Adı</label>
+            <input type="text" class="form-control" asp-for="User.UserName" readonly>
+            <span class="form-text text-danger" asp-validation-for="User.UserName"></span>
+        </div>
+        <div class="mb-3 form-group">
+            <label asp-for="User.UserMail" class="form-label">Email</label>
+            <input type="email" class="form-control" asp-for="User.UserMail" readonly>
+            <span class="form-text text-danger" asp-validation-for="User.UserMail"></span>
+        </div>
+        <div class="mb-3 form-group">
+            <label asp-for="User.PositionID" class="form-label">Pozisyon</label>
+            <select asp-for="User.PositionID" class="form-control" asp-items="@(new SelectList(Model.Positions,"PositionID","PositionName"))"></select>
+            <span class="form-text text-danger" asp-validation-for="User.PositionID"></span>
+        </div>
+        <input type="hidden" asp-for="User.UserID" />
+        <input type="hidden" asp-for="User.UserStatus" />
+        <input type="hidden" asp-for="User.UserPassword" />
+        <div class="text-center"><button type="submit" class="btn btn-outline-warning">Güncelle</button></div>
+    </form>
+</div>

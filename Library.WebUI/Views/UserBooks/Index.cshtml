@@ -1,0 +1,46 @@
+﻿@model BookViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UserLayout/_UserLayout.cshtml";
+}
+
+
+<!-- Arama formu -->
+
+<div class="col-md-6 text-center m-auto">
+    <form asp-action="Index" asp-controller="UserBooks">
+        <div class="py-3 form-group">
+            <input type="text" class="form-control" name="searchString">
+        </div>
+        <div class="text-center"><button type="submit" class="btn btn-success">Ara</button></div>
+    </form>
+</div>
+
+
+
+
+<!-- Card Shadow ile Kitapların Listelenmesi -->
+
+<div class="row m-0 mt-3">
+    @foreach (var book in Model.Books)
+    {
+        <div class="p-2 mb-3 col-lg-4 col-md-6">
+            <div class="card shadow">
+                <div class="row g-0">
+                    <div class="col-md-4 text-center">
+                        <img src="~/image/@book.BookImage" class="img-fluid rounded-start" style="object-fit: cover; height:100%;" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body text-center">
+                            <h5 class="card-title" style="color: #001884">@book.BookName</h5>
+                            <p class="card-text" style="color: #00155b ">@book.Author.AuthorFirstName @book.Author.AuthorLastName</p>
+                            <p class="card-text">@book.NumberOfPage</p>
+                            <p class="card-text text-muted">@book.Type.TypeName</p>
+                            <a href="/UserBooks/BorrowBook/@book.BookID" class="btn btn-outline-primary">Ödünç Al</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

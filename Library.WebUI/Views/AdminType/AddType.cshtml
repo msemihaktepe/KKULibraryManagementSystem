@@ -1,0 +1,17 @@
+﻿@model TypeViewModel
+@{
+    ViewData["Title"] = "AddType";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1 class="py-3 text-white" style="background-color: #3a393f ">KİTAP TÜRÜ EKLE</h1>
+<div class="mx-5 mt-4">
+    <form asp-action="AddType" asp-controller="AdminType" method="post">
+        <div class="mb-3 form-group">
+            <label asp-for="Type.TypeName" class="form-label">Kitap Türü</label>
+            <input type="text" class="form-control" asp-for="Type.TypeName">
+            <span class="form-text text-danger" asp-validation-for="Type.TypeName"></span>
+        </div>
+        <div class="text-center"><button type="submit" class="btn btn-outline-primary">Ekle</button></div>
+    </form>
+</div>

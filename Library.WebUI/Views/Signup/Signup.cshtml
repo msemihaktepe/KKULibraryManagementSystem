@@ -1,0 +1,49 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "Signup";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<link href="~/css/login.css" rel="stylesheet" />
+
+<div class="center">
+    <h1>Üye Ol</h1>
+    <form method="post" asp-action="Signup" asp-controller="Signup">
+        <div class="txt_field">
+            <input asp-for="User.UserFirstName" type="text" required>
+            <span></span>
+            <label asp-for="User.UserFirstName">Ad</label>
+            <span class="text-danger" asp-validation-for="User.UserFirstName"></span>
+        </div>
+        <div class="txt_field">
+            <input asp-for="User.UserLastName" type="text" required>
+            <span></span>
+            <label asp-for="User.UserLastName">Soyad</label>
+            <span class="text-danger" asp-validation-for="User.UserLastName"></span>
+        </div>
+        <div class="txt_field">
+            <input asp-for="User.UserName" type="text" required>
+            <span></span>
+            <label asp-for="User.UserName">Kullanıcı Adı</label>
+            <span class="form-text text-danger" asp-validation-for="User.UserName"></span>
+        </div>
+
+        <div class="txt_field">
+            <input asp-for="User.UserPassword" type="password" required>
+            <span></span>
+            <label asp-for="User.UserPassword">Şifre</label>
+            <span class="form-text text-danger" asp-validation-for="User.UserPassword"></span>
+        </div>
+
+        <div class="txt_field">
+            <input asp-for="User.UserMail" type="text" required>
+            <span></span>
+            <label asp-for="User.UserMail">Email</label>
+            <span class="form-text text-danger" asp-validation-for="User.UserMail"></span>
+        </div>
+        <input type="submit" value="Üye Ol">
+        <div class="text-center">
+            <a href="/Loginout/Login" class="btn1">Giriş</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,21 @@
+﻿@model RuleViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UserLayout/_UserLayout.cshtml";
+    var count = 0;
+}
+
+<div class="accordion accordion-flush py-3" id="accordionFlushExample">
+    <table class="table table-striped table-hover">
+        <tbody>
+            @foreach (var item in Model.Rules)
+            {
+                count++;
+                <tr>
+                    <th scope="row">@count</th>
+                    <td>@item.RuleDesc</td>
+                </tr>
+            }           
+        </tbody>
+    </table>
+</div>

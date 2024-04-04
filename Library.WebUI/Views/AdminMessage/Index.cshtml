@@ -1,0 +1,32 @@
+﻿@model MessageViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1 class="mb-5 py-3 text-white" style="background-color: #3a393f ">OKUNMAMIŞ MESAJLAR</h1>
+<div class="mx-5">
+    <a href="/AdminMessage/ReadMessages" class="btn btn-outline-success my-4 float-end">Okunmuş Mesajlar</a>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>KULLANICI ADI</th>
+                <th>MESAJ</th>
+                <th>TARİH</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var message in Model.Messages)
+            {
+                <tr>
+                    <td>@message.User.UserName</td>
+                    <td>@message.MessageText</td>
+                    <td>@message.MessageDate.GetDateTimeFormats()[0]</td>
+                    <td><a href="/AdminMessage/MarkAsReadMessage/@message.MessageID" class="btn btn-sm btn-outline-danger">Okundu</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
